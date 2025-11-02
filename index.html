@@ -1,227 +1,485 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shawn Xavier Christening Invitation</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Shawn Xavier — Christening Invitation</title>
+<meta name="description" content="You're invited to the christening of Shawn Xavier Christineng — elegant blue-themed invitation with slideshow."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-1:#dff2ff;
+    --blue-2:#9fc7ff;
+    --blue-3:#2b6fb3;
+    --accent:#8ed1ff;
+    --glass: rgba(255,255,255,0.72);
+    --text-dark:#0f2a44;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color:var(--text-dark);
+    background: linear-gradient(180deg,var(--blue-1) 0%, #eef7ff 30%, #f7fbff 100%);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-x:hidden;
+  }
 
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
-    html,body{scroll-behavior:smooth;font-family:'Poppins',sans-serif;background:#eaf2ff;overflow-x:hidden;}
-    h1,h2,h3{font-family:'Fredoka One',cursive;}
+  /* Page container */
+  .wrap {
+    max-width:1100px;
+    margin:28px auto;
+    padding:20px;
+  }
 
-    /* HEADER */
-    header{
-      text-align:center;
-      background:linear-gradient(to bottom right,#74b9ff,#d6e9ff);
-      color:white;
-      padding:90px 20px 100px;
-      position:relative;
-      overflow:hidden;
-    }
-    header h1{
-      font-size:2.8rem;
-      color:#fff;
-      text-shadow:2px 3px 8px rgba(0,0,0,0.3);
-      animation:float 4s ease-in-out infinite;
-    }
-    header h2{
-      font-size:1.1rem;
-      margin-top:10px;
-      color:#e3f2fd;
-      letter-spacing:1px;
-    }
+  /* Cinematic hero */
+  .hero{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(245,252,255,0.55));
+    box-shadow: 0 18px 50px rgba(12,40,80,0.08);
+    padding:28px;
+  }
 
-    @keyframes float{
-      0%,100%{transform:translateY(0);}
-      50%{transform:translateY(-8px);}
-    }
+  /* glowing title */
+  .title {
+    text-align:center;
+    margin-top:6px;
+    margin-bottom:12px;
+  }
+  .title h1{
+    font-family: "Playfair Display", serif;
+    font-size: clamp(28px, 5vw, 48px);
+    margin:0;
+    color: var(--blue-3);
+    letter-spacing:1px;
+    line-height:1;
+    text-shadow:
+      0 6px 30px rgba(43,111,179,0.12),
+      0 1px 0 rgba(255,255,255,0.6);
+    position:relative;
+  }
+  .title h1::after{
+    content:"";
+    display:block;
+    width:180px;
+    height:6px;
+    margin:12px auto 0;
+    border-radius:8px;
+    background: linear-gradient(90deg,var(--accent),var(--blue-3));
+    filter:blur(6px);
+    opacity:0.95;
+  }
+  .subtitle{
+    text-align:center;
+    color:#235079;
+    font-weight:600;
+    margin-top:10px;
+    font-size:clamp(14px, 2.2vw, 16px);
+  }
 
-    /* HERO PHOTO */
-    .hero{
-      text-align:center;
-      margin-top:-60px;
-      position:relative;
-      z-index:2;
-    }
-    .photo-frame{
-      width:280px;
-      height:350px;
-      margin:auto;
-      border-radius:25px;
-      overflow:hidden;
-      border:6px solid #fff;
-      box-shadow:0 12px 25px rgba(0,0,0,0.25);
-      transform:rotate(-2deg);
-      animation:popIn 1.2s ease-out;
-    }
-    .photo-frame img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-    @keyframes popIn{
-      0%{opacity:0;transform:scale(0.9)rotate(-2deg);}
-      100%{opacity:1;transform:scale(1)rotate(-2deg);}
-    }
+  /* content grid: left slideshow, right details */
+  .grid {
+    display:grid;
+    grid-template-columns: 1fr 420px;
+    gap:22px;
+    align-items:start;
+    margin-top:20px;
+  }
+  @media (max-width:980px){
+    .grid{ grid-template-columns: 1fr; }
+  }
 
-    /* DETAILS */
-    .details{
-      text-align:center;
-      padding:40px 20px 30px;
-      background:linear-gradient(to bottom,#ffffff,#eaf2ff);
-      border-radius:30px 30px 0 0;
-      margin-top:-40px;
-      position:relative;
-      z-index:3;
-    }
-    .details h3{
-      color:#1a4d8f;
-      font-size:1.8rem;
-      margin-bottom:10px;
-    }
-    .details p{
-      margin:6px 0;
-      color:#2c4e6e;
-      font-size:1rem;
-    }
-    .details strong{color:#1a4d8f;}
+  /* slideshow / hero image */
+  .slideshow {
+    position:relative;
+    border-radius:16px;
+    overflow:hidden;
+    min-height:420px;
+    background: linear-gradient(180deg,#ffffff,#f2fbff);
+    box-shadow: 0 20px 50px rgba(16,60,100,0.06);
+  }
+  .slides {
+    position:relative;
+    height:100%;
+  }
+  .slide {
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition: opacity 900ms ease, transform 900ms ease;
+    transform: scale(1.02);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .slide.active{ opacity:1; transform: scale(1); }
 
-    /* SPARKLES */
-    .sparkle{
-      position:absolute;
-      width:6px;
-      height:6px;
-      border-radius:50%;
-      background:rgba(255,255,255,0.9);
-      animation:twinkle 2s infinite;
-      z-index:5;
-    }
-    @keyframes twinkle{
-      0%,100%{opacity:0.2;transform:scale(0.8);}
-      50%{opacity:1;transform:scale(1.2);}
-    }
+  /* slideshow controls (small dots + prev/next) */
+  .dots{
+    position:absolute;
+    left:12px;
+    bottom:12px;
+    display:flex;
+    gap:8px;
+    z-index:8;
+  }
+  .dot{
+    width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,0.6);
+    box-shadow:0 6px 18px rgba(40,96,140,0.12);
+    cursor:pointer;
+    border:1px solid rgba(16,60,100,0.06);
+  }
+  .dot.active{ background: linear-gradient(90deg,var(--accent),var(--blue-3)); }
 
-    /* GALLERY */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-      gap:12px;
-      padding:30px 20px 50px;
-      background:#f0f6ff;
-    }
-    .gallery img{
-      width:100%;
-      height:150px;
-      object-fit:cover;
-      border-radius:16px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.1);
-      transition:transform 0.4s ease;
-    }
-    .gallery img:hover{
-      transform:scale(1.07);
-    }
+  .slide-controls{
+    position:absolute;
+    right:12px;
+    bottom:12px;
+    display:flex;
+    gap:8px;
+    z-index:8;
+  }
+  .circle-btn{
+    width:40px;height:40px;border-radius:999px;border:0;background:rgba(255,255,255,0.9);
+    display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+    box-shadow:0 10px 30px rgba(10,40,80,0.08);
+    font-size:18px;color:var(--blue-3);
+  }
 
-    /* FOOTER */
-    footer{
-      text-align:center;
-      background:#1a4d8f;
-      color:white;
-      padding:20px;
-      font-size:0.9rem;
-    }
-    footer p{margin:4px 0;}
+  /* right info card */
+  .info {
+    background: var(--glass);
+    border-radius:14px;
+    padding:18px;
+    box-shadow: 0 20px 60px rgba(12,40,80,0.06);
+  }
+  .info .name{
+    font-family:"Playfair Display", serif;
+    font-size:22px;
+    color:var(--blue-3);
+    margin-bottom:8px;
+  }
+  .info .meta{
+    color:#15486e;
+    font-weight:600;
+    margin-bottom:12px;
+  }
+  .info .details{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:8px;
+  }
+  .chip{
+    background:rgba(255,255,255,0.85);
+    padding:12px;border-radius:10px;font-weight:600;color:#123b57;
+    box-shadow:inset 0 -6px 12px rgba(255,255,255,0.5);
+    border:1px solid rgba(16,60,100,0.04);
+    font-size:14px;
+  }
+  @media (max-width:520px){
+    .info .details{ grid-template-columns:1fr; }
+  }
 
-    /* MUSIC BUTTON */
-    #music-btn{
-      position:fixed;
-      bottom:18px;
-      right:18px;
-      background:#1a4d8f;
-      color:#fff;
-      border:none;
-      border-radius:50%;
-      width:50px;
-      height:50px;
-      font-size:20px;
-      cursor:pointer;
-      box-shadow:0 5px 20px rgba(0,0,0,0.3);
-      transition:transform 0.2s;
-      z-index:100;
-    }
-    #music-btn:hover{transform:scale(1.1);}
-  </style>
+  /* small notes */
+  .note{ margin-top:14px;color:#1b486a;font-size:14px; font-weight:600; }
+
+  /* gallery below */
+  .gallery {
+    margin-top:28px;
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:10px;
+  }
+  @media (max-width:980px){ .gallery{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width:520px){ .gallery{ grid-template-columns: 1fr; } }
+
+  .gallery img{
+    width:100%; height:110px; object-fit:cover; border-radius:10px; display:block;
+    box-shadow:0 12px 30px rgba(12,40,80,0.06); transition: transform .28s ease;
+  }
+  .gallery img:hover{ transform: scale(1.03); }
+
+  /* particle sparkle layer */
+  .particles{
+    pointer-events:none;
+    position:absolute; inset:0; z-index:4;
+  }
+  .spark{
+    position:absolute;
+    width:8px; height:8px; border-radius:50%;
+    background: radial-gradient(circle, #ffffff 0%, var(--accent) 50%, rgba(142,209,255,0.15) 100%);
+    box-shadow:0 8px 22px rgba(60,140,200,0.12);
+    opacity:0; transform:translateY(0) scale(0.6);
+    animation: floatup 3.2s linear infinite;
+  }
+  @keyframes floatup{
+    0%{ opacity:0; transform:translateY(0) scale(0.6); }
+    10%{ opacity:1; transform:translateY(-10px) scale(1); }
+    100%{ opacity:0; transform:translateY(-80px) scale(0.6); }
+  }
+
+  /* footer */
+  footer{ text-align:center; color:#1a4d8f; margin-top:36px; padding-bottom:40px; font-weight:600; }
+
+  /* music/unmute button */
+  #musicBtn{
+    position:fixed; right:18px; bottom:18px; z-index:999;
+    background: linear-gradient(180deg,var(--accent),var(--blue-3));
+    color:white;border:0;padding:12px 14px;border-radius:999px;cursor:pointer;
+    box-shadow:0 14px 40px rgba(10,40,80,0.14); font-weight:700;
+  }
+  #musicBtn:focus{ outline:3px solid rgba(142,209,255,0.45); outline-offset:4px; }
+
+  /* subtle entrance animations */
+  .fade-in { opacity:0; transform: translateY(6px); animation: fadeInUp .9s forwards; }
+  .fade-in.delay-1{ animation-delay:0.14s }
+  .fade-in.delay-2{ animation-delay:0.28s }
+  @keyframes fadeInUp{ to{ opacity:1; transform: translateY(0) } }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>You're Invited!</h1>
-    <h2>to the Christening of</h2>
+<div class="wrap">
+
+  <header class="hero fade-in">
+    <div class="title">
+      <div class="title-badge" aria-hidden="true"></div>
+      <h1>Shawn Xavier</h1>
+      <div class="subtitle">We invite you to celebrate his Christening — November 9, 2025</div>
+    </div>
+
+    <div class="grid" style="margin-top:22px;">
+
+      <!-- LEFT: slideshow -->
+      <div class="slideshow fade-in delay-1" id="slideshowRoot" aria-label="Photo slideshow">
+        <div class="slides" id="slides">
+          <div class="slide active"><img src="https://i.imgur.com/EZAPjrS.jpg" alt="Shawn photo 1"></div>
+          <div class="slide"><img src="https://i.imgur.com/kUWpJYM.jpg" alt="Shawn photo 2"></div>
+          <div class="slide"><img src="https://i.imgur.com/xXQEKsP.jpg" alt="Shawn photo 3"></div>
+          <div class="slide"><img src="https://i.imgur.com/D26YWns.jpg" alt="Shawn photo 4"></div>
+          <div class="slide"><img src="https://i.imgur.com/niGyXNs.jpg" alt="Shawn photo 5"></div>
+        </div>
+
+        <!-- dots -->
+        <div class="dots" id="dots" aria-hidden="true"></div>
+
+        <!-- controls -->
+        <div class="slide-controls" aria-hidden="true">
+          <button class="circle-btn" id="prevBtn" title="Previous">‹</button>
+          <button class="circle-btn" id="nextBtn" title="Next">›</button>
+        </div>
+
+        <!-- particles layer inside slideshow for sparkle effect -->
+        <div class="particles" id="particlesLayer" aria-hidden="true"></div>
+      </div>
+
+      <!-- RIGHT: information -->
+      <aside class="info fade-in delay-2" aria-labelledby="inviteName">
+        <div id="inviteName" class="name">Shawn Xavier Christineng</div>
+        <div class="meta">Christening • November 9, 2025 • 10:00 AM</div>
+
+        <div class="details" role="list">
+          <div class="chip" role="listitem"><strong>Church</strong><br>Mother of Mercy Quasi Parish Church</div>
+          <div class="chip" role="listitem"><strong>Location</strong><br>Loma De Gato, Marilao Bulacao</div>
+          <div class="chip" role="listitem"><strong>Reception</strong><br>McDonald's Muzon, Brgy. Muzon, SJDM</div>
+          <div class="chip" role="listitem"><strong>Dress</strong><br>Smart casual</div>
+        </div>
+
+        <div class="note">Please arrive 15 minutes early. Your presence and prayers are the greatest gift.</div>
+      </aside>
+
+    </div> <!-- grid -->
   </header>
 
-  <section class="hero">
-    <div class="photo-frame">
-      <img src="https://imgur.com/EZAPjrS.jpg" alt="Baby Shawn Xavier">
-    </div>
+  <!-- gallery -->
+  <section class="gallery fade-in" aria-label="More photos" style="margin-top:26px;">
+    <img src="https://i.imgur.com/kUWpJYM.jpg" alt="photo 2">
+    <img src="https://i.imgur.com/xXQEKsP.jpg" alt="photo 3">
+    <img src="https://i.imgur.com/D26YWns.jpg" alt="photo 4">
+    <img src="https://i.imgur.com/niGyXNs.jpg" alt="photo 5">
   </section>
 
-  <section class="details">
-    <h3>Shawn Xavier Christineng</h3>
-    <p><strong>Date:</strong> November 9, 2025</p>
-    <p><strong>Church:</strong> Mother of Mercy Quasi Parish Church</p>
-    <p><strong>Location:</strong> Loma De Gato, Marilao Bulacao</p>
-    <p><strong>Reception:</strong> McDonald's Muzon, Brgy. Muzon, SJDM</p>
-  </section>
-
-  <section class="gallery">
-    <img src="https://imgur.com/kUWpJYM.jpg" alt="">
-    <img src="https://imgur.com/xXQEKsP.jpg" alt="">
-    <img src="https://imgur.com/D26YWns.jpg" alt="">
-    <img src="https://imgur.com/niGyXNs.jpg" alt="">
-  </section>
-
-  <footer>
-    <p>We can’t wait to celebrate this special day with you! 💙</p>
-    <p>© 2025 — Shawn Xavier Christineng</p>
+  <footer class="fade-in" style="margin-top:18px;">
+    We can’t wait to celebrate with you • © 2025 Shawn Xavier Christineng
   </footer>
 
-  <!-- Background Music -->
-  <audio id="bg-music" loop autoplay muted>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/16/audio_c3b00c51aa.mp3?filename=happy-little-island-ambient-110997.mp3" type="audio/mpeg">
-  </audio>
+</div> <!-- wrap -->
 
-  <button id="music-btn" title="Play Music">🎵</button>
+<!-- background music (soft piano/lullaby). Autoplay muted, will unmute after interaction -->
+<audio id="bgAudio" loop preload="auto">
+  <source src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_19f2a6fd3b.mp3?filename=calm-piano-ambient-112899.mp3" type="audio/mpeg">
+</audio>
 
-  <script>
-    const music=document.getElementById('bg-music');
-    const btn=document.getElementById('music-btn');
-    let playing=true;
-    btn.addEventListener('click',()=>{
-      if(playing){
-        music.pause();
-        playing=false;
-        btn.textContent="🔇";
-      } else {
-        music.play();
-        music.muted=false;
-        playing=true;
-        btn.textContent="🔊";
-      }
+<button id="musicBtn" aria-pressed="false" aria-label="Toggle music">🔈 Play</button>
+
+<script>
+  // ----- Slideshow logic -----
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const dotsContainer = document.getElementById('dots');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let current = 0;
+  let slideInterval = null;
+  const INTERVAL = 4500;
+
+  // create dots
+  slides.forEach((s,i)=>{
+    const d = document.createElement('div');
+    d.className = 'dot' + (i===0 ? ' active' : '');
+    d.dataset.index = i;
+    d.addEventListener('click', ()=> goTo(parseInt(d.dataset.index,10)));
+    dotsContainer.appendChild(d);
+  });
+
+  function show(i){
+    slides.forEach((sl,idx)=>{
+      sl.classList.toggle('active', idx===i);
     });
-    // Unmute after first click anywhere
-    document.body.addEventListener('click',()=>{music.muted=false;},{once:true});
+    const dots = Array.from(dotsContainer.children);
+    dots.forEach((d, idx)=> d.classList.toggle('active', idx===i));
+    current = i;
+  }
+  function next(){ show((current+1) % slides.length); }
+  function prev(){ show((current-1+slides.length) % slides.length); }
+  function goTo(i){ show(i); resetInterval(); }
 
-    // Random sparkles floating
-    for(let i=0;i<15;i++){
-      const s=document.createElement('div');
-      s.classList.add('sparkle');
-      s.style.top=Math.random()*100+"%";
-      s.style.left=Math.random()*100+"%";
-      s.style.animationDelay=Math.random()*2+"s";
-      document.body.appendChild(s);
+  prevBtn.addEventListener('click', ()=> { prev(); });
+  nextBtn.addEventListener('click', ()=> { next(); });
+
+  function startInterval(){
+    stopInterval();
+    slideInterval = setInterval(next, INTERVAL);
+  }
+  function stopInterval(){ if(slideInterval) clearInterval(slideInterval); }
+  function resetInterval(){ startInterval(); }
+
+  // start slideshow after small delay
+  window.addEventListener('load', ()=> {
+    startInterval();
+  });
+
+  // pause slideshow on hover (desktop)
+  const slideshowRoot = document.getElementById('slideshowRoot');
+  slideshowRoot.addEventListener('mouseenter', ()=> stopInterval());
+  slideshowRoot.addEventListener('mouseleave', ()=> startInterval());
+
+  // ----- Particles (sparks) -----
+  const particlesLayer = document.getElementById('particlesLayer');
+  function spawnSpark(){
+    const s = document.createElement('div');
+    s.className = 'spark';
+    // random position inside slideshow box
+    s.style.left = (8 + Math.random()*84) + '%';
+    s.style.bottom = (6 + Math.random()*72) + '%';
+    s.style.animationDuration = (2.6 + Math.random()*1.6) + 's';
+    s.style.opacity = 0;
+    particlesLayer.appendChild(s);
+    // remove after its life
+    setTimeout(()=> { s.remove(); }, 4200);
+  }
+  // spawn periodic bursts
+  setInterval(()=> {
+    for(let i=0;i<3;i++){ setTimeout(spawnSpark, i*160); }
+  }, 1600);
+
+  // ----- Music controls -----
+  const audio = document.getElementById('bgAudio');
+  const musicBtn = document.getElementById('musicBtn');
+  let audioPlaying = false;
+
+  // Try autoplay muted (some browsers allow)
+  async function tryAutoplayMuted(){
+    try {
+      audio.muted = true;
+      await audio.play();
+      // show 'Play' so user can unmute
+      musicBtn.textContent = '🔈 Play';
+      audioPlaying = true;
+      musicBtn.setAttribute('aria-pressed', 'false');
+    } catch(e){
+      // autoplay blocked - keep paused
+      audioPlaying = false;
+      musicBtn.textContent = '🔈 Play';
+      musicBtn.setAttribute('aria-pressed', 'false');
     }
-  </script>
+  }
+  tryAutoplayMuted();
+
+  // toggle on button:
+  musicBtn.addEventListener('click', async () => {
+    if(!audioPlaying){
+      try {
+        audio.muted = false;
+        audio.volume = 0.66;
+        await audio.play();
+        audioPlaying = true;
+        musicBtn.textContent = '🔊';
+        musicBtn.setAttribute('aria-pressed', 'true');
+      } catch(e){
+        // if play fails, attempt to play muted then unmute
+        audio.muted = true;
+        await audio.play().catch(()=>{});
+        audio.muted = false;
+        audioPlaying = true;
+        musicBtn.textContent = '🔊';
+        musicBtn.setAttribute('aria-pressed', 'true');
+      }
+    } else {
+      audio.pause();
+      audioPlaying = false;
+      musicBtn.textContent = '🔈 Play';
+      musicBtn.setAttribute('aria-pressed', 'false');
+    }
+  });
+
+  // also unmute on first user interaction anywhere (friendly)
+  window.addEventListener('pointerdown', function onceUnmute(){
+    if(audio && audio.paused === false && audio.muted){
+      audio.muted = false;
+      audio.volume = 0.66;
+      musicBtn.textContent = '🔊';
+      musicBtn.setAttribute('aria-pressed', 'true');
+    }
+    // remove after first use
+    window.removeEventListener('pointerdown', onceUnmute);
+  }, {capture:false});
+
+  // Open images in new tab when clicked
+  document.querySelectorAll('.slide img, .gallery img').forEach(img=>{
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', ()=> window.open(img.src, '_blank'));
+  });
+
+  // Accessibility: allow arrow keys to change slides
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowRight') next();
+    if(e.key === 'ArrowLeft') prev();
+  });
+
+  // Clean up when user switches tab (pause audio)
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.hidden){
+      if(!audio.paused) audio.pause();
+    } else {
+      // if previously playing (user had toggled on), resume
+      if(audioPlaying && audio.paused){
+        audio.play().catch(()=>{});
+      }
+    }
+  });
+
+</script>
 </body>
 </html>
